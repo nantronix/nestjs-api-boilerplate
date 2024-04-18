@@ -1,0 +1,70 @@
+import { Entity, ObjectIdColumn, Column,Generated,CreateDateColumn,UpdateDateColumn,PrimaryGeneratedColumn,OneToOne,JoinColumn,ManyToOne} from 'typeorm'
+import { Exclude, plainToClass } from 'class-transformer'
+import {TaskServerEntity } from './task_server.entity'
+
+@Entity({
+	name: 'mmx_task',
+	orderBy: {
+		id: 'ASC'
+	}
+})
+
+export class TaskEntity {
+	@PrimaryGeneratedColumn()
+	id: number;
+	// basic
+    
+    @Column()
+    @Generated("uuid")
+	uuid: string
+
+    @Column({ type: "tinyint", width:1, default:'0',comment:'0:等待中,1:进行中,2:成功,5:失败'})
+	status:number
+
+    //任务关联的工作流id
+    @ApiProperty({ description: '任务关联的工作流id' })
+    @Column({ type: 'int', default: 0 })
+    workflow_id: number;
+
+    //哪位用户执行的任务
+    @ApiProperty({ description: '哪位用户执行的任务' })
+    @Column({ type: 'int', default: 0 })
+    user_id: number;
+
+    //start time,任务开始时间
+    @ApiProperty({ description: 'start time,任务开始时间' })
+    @Column({type:"datetime",nullable:true,default:() =>'CURRENT_TIMESTAMP'})
+    start_time:Date
+
+    //end time,任务结束时间
+    @ApiProperty({ description: 'end time,任务结束时间' })
+    @Column({type:"datetime",nullable:true,nullable:true})
+    end_time:Date
+
+	@CreateDateColumn()
+	created_at: Date
+
+	@UpdateDateColumn()
+	updated_at: Date
+
+    /*@ManyToOne(() => TaskServerEntity,server => server.tasks) // 将另一面指定为第二个参数
+    @JoinColumn({ name: "server_id" })
+    server: TaskServerEntity;*/
+
+
+	constructor(partial: Partial<TasksEntity>) {
+		/*if (partial) {
+			Object.assign(this, partial)
+			this._id = this._id || uuidv4()
+			this.avatar =
+				this.avatar ||
+				'https://res.cloudinary.com/chnirt/image/upload/v1573662028/rest/2019-11-13T16:20:22.699Z.png'
+			this.verified = this.verified || false
+			this.createdAt = this.createdAt || +new Date()
+			this.updatedAt = +new Date()
+		}*/
+	}
+}
+
+    
+
