@@ -59,32 +59,7 @@ export class UsersController {
     return this.usersService.create(createUserDto);
   }
 
-  /*  @Get('sendMsgTest')
-  sendMsgTest(){
-      return this.usersService.sendTestMsg()
-  }*/
-  /* @Get()
-  findAll() {
-    return this.usersService.findAll();
-  }
-
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.usersService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-    return this.usersService.update(+id, updateUserDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.usersService.remove(+id);
-  }*/
-
-  @UseGuards(JwtAuthGuard)
+ /* @UseGuards(JwtAuthGuard)
   @Post('get_phone_number')
   getPhoneNumber(@Request() req) {
     return this.usersService.getPhoneNumber(req.body, req.user);
@@ -101,5 +76,5 @@ export class UsersController {
   @Get('get_groups')
   getGroups(@Request() req) {
     return this.usersService.getGroups();
-  }
+  }*/
 }
