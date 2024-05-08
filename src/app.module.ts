@@ -8,8 +8,6 @@ import { UsersModule } from './modules/users/users.module';
 import { AuthModule } from './auth/auth.module';
 import configuration from './config/configuration';
 import{ CacheService } from './services';
-import { WechatModule } from './modules/wechat/wechat.module';
-import { OssModule} from "./modules/oss/oss.module";
 import { ScheduleModule } from '@nestjs/schedule';
 import { join,resolve } from 'path';
 import {
@@ -19,15 +17,6 @@ import {
   QueryResolver,
   HeaderResolver
 } from 'nestjs-i18n';
-import { OcrModule } from './modules/ocr/ocr.module';
-import { GptModule } from './modules/gpt/gpt.module';
-import { MicroModule } from './modules/micro/micro.module';
-import { UploadModule } from './actions/upload/upload.module';
-import { TaskModule } from './modules/task/task.module';
-import { ApplicationModule } from './modules/application/application.module';
-import { ExcelModule } from './modules/excel/excel.module';
-import { WorkflowModule } from './modules/workflow/workflow.module';
-import { VirtualEmployeeModule } from './modules/virtual_employee/virtual_employee.module';
 
 
 @Module({
@@ -71,17 +60,6 @@ import { VirtualEmployeeModule } from './modules/virtual_employee/virtual_employ
 		}),
         UsersModule,
         AuthModule,
-        WechatModule,
-        OssModule,
-        OcrModule,
-        GptModule,
-        MicroModule,
-        UploadModule,
-        TaskModule,
-        ApplicationModule,
-        ExcelModule,
-        WorkflowModule,
-        VirtualEmployeeModule,
     ],
     controllers: [AppController],
     providers: [AppService],

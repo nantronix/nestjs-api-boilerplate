@@ -85,20 +85,6 @@ export class UsersService {
     }
   }
 
-  async checkNewUser(user_id) {
-    const log = await this.accountLogRepository.findOne({ where: { user_id } });
-    if (!log) {
-      const postData = {
-        user_id,
-        action: 1,
-        action_type: 'new_user',
-        amount: 1,
-      };
-      await this.accountChange(postData);
-    }
-    return;
-  }
-
 
 
   async findOneTest(username: string): Promise<User | undefined> {

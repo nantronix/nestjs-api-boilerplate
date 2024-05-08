@@ -79,17 +79,7 @@ export class AppController {
 	login(@Request() req): Promise<LoginResponseDto> {
 		return this.authService.login(req.user)
     }
-
-    @Post('auth/wxLogin')
-	wxLogin(@Request() req): Promise<LoginResponseDto> {
-		return this.authService.wxLogin(req)
-	}
-
-    @Post('auth/ttLogin')
-	ttLogin(@Request() req): Promise<LoginResponseDto> {
-		return this.authService.ttLogin(req)
-	}
- 
+  
     @UseGuards(JwtAuthGuard)
     @Get('profile')
     getProfile(@Request() req) {

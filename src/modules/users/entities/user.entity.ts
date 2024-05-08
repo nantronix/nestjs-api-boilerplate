@@ -13,8 +13,6 @@ import {
 } from 'typeorm';
 import { Exclude, plainToClass } from 'class-transformer';
 import { ApiProperty } from '@nestjs/swagger';
-import { WeixinUserEntity } from './weixin_user.entity';
-import { DouyinUserEntity } from './douyin_user.entity';
 import { AccountLogEntity } from './account_log.entity';
 import { UserGroupEntity } from './user_group.entity';
 
@@ -143,12 +141,6 @@ export class UserEntity {
   @ApiProperty({ description: 'The updated_at  of the User' })
   @UpdateDateColumn()
   updated_at: Date;
-
-  @OneToOne(() => WeixinUserEntity, (weixinUser) => weixinUser.user) // 将另一面指定为第二个参数
-  weixinUser: WeixinUserEntity;
-
-  @OneToOne(() => DouyinUserEntity, (douyinUser) => douyinUser.user) // 将另一面指定为第二个参数
-  douyinUser: DouyinUserEntity;
 
   @OneToMany(() => AccountLogEntity, (accountLog) => accountLog.user) // 将另一面指定为第二个参数
   accountLog: AccountLogEntity;
