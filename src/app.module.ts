@@ -52,7 +52,7 @@ import {
                 //entities: [],
                 autoLoadEntities: true,
                 synchronize: configService.get<boolean>('database.sync'),
-                timezone: "+08:00" // 添
+                //timezone: "+08:00"
             }),
         }),
         CacheModule.registerAsync({
